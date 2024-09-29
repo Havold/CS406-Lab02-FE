@@ -1,0 +1,63 @@
+.home {
+    background-color: var(--default-layout-background-dark);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+
+    .card {
+        min-width: 1000px;
+        height: 600px;
+        border-radius: 8px;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        background: linear-gradient(rgba(39,11,96,0.5), rgba(39,11,96,0.2)), url('../../assets/images/background.jpg');
+        object-fit: cover;
+
+        .title {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            h3 {
+                font-size: 20px;
+            }
+    
+            h1 {
+                font-size: 80px;
+                color: white;
+                line-height: 80px;
+                font-weight: bold;
+            }
+            
+            p {
+                font-size: 12px;
+                width: 250px;
+                text-align: center;
+            }
+        }
+
+        input {
+            display: none;
+        }
+
+        label {
+            color: white;
+            background-color: var(--primary);
+            font-size: 20px;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+    }
+}
