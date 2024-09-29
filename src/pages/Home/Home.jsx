@@ -12,18 +12,9 @@ const Home = () => {
     if (file) {
       file.preview = URL.createObjectURL(file);
       setImage(file);
-      console.log(file.preview);
       navigate("/result");
     }
   };
-
-  useEffect(() => {
-    return () => {
-      if (image) {
-        URL.revokeObjectURL(image.preview);
-      }
-    };
-  }, [image]);
 
   return (
     <div className="home">
