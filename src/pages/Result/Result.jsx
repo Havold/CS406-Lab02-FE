@@ -1,39 +1,48 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import "./result.scss";
 import { UploadContext } from "../../context/UploadContext";
 import ResultImage from "../../components/ResultImage/ResultImage";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { makeRequest } from "../../axios";
 
 function Result() {
   const { image, setImage } = useContext(UploadContext);
+  const [isLoading, setIsLoading] = useState(false);
+  const queryClient = useQueryClient();
+  let { isPending, error, data } = useQuery({
+    queryKey: ["images"],
+    queryFn: () => {
+      if (image) {
+        const formData = new FormData();
+        formData.append("image", image);
+        return makeRequest.post("/upload", formData).then((res) => {
+          setIsLoading(false);
+          console.log(res.data.similarImages);
+          return res.data.similarImages;
+        });
+      }
+      return null;
+    },
+    enabled: !!image, // Chỉ chạy query khi image có giá trị
+  });
+
+  const mutation = useMutation({
+    mutationFn: (newFile) => {
+      newFile.preview = URL.createObjectURL(newFile);
+      setImage(newFile);
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["images"] });
+    },
+  });
 
   const handleUpload = (e) => {
     const file = e.target.files[0];
     if (file) {
-      file.preview = URL.createObjectURL(file);
-      setImage(file);
+      setIsLoading(true);
+      mutation.mutate(file);
     }
   };
-
-  const data = [
-    {
-      id: 1,
-      url: "/images/01.jpg",
-      name: "Image name",
-      distance: 200,
-    },
-    {
-      id: 2,
-      url: "/images/01.jpg",
-      name: "Image name",
-      distance: 200,
-    },
-    {
-      id: 3,
-      url: "/images/01.jpg",
-      name: "Image name",
-      distance: 200,
-    },
-  ];
 
   return (
     <div className="result">
@@ -54,15 +63,23 @@ function Result() {
         <label htmlFor="uploadFile">Upload again</label>
       </div>
       <div className="right">
-        <div className="top">Result Images</div>
-        {data.map((image) => (
-          <ResultImage
-            key={image.id}
-            url={image.url}
-            name={image.name}
-            distance={image.distance}
-          />
-        ))}
+        {data ? <div className="top">Result Images</div> : <></>}
+        {error ? (
+          "Something went wrong!"
+        ) : isLoading ? (
+          "Loading..."
+        ) : data ? (
+          data.map((image, index) => (
+            <ResultImage
+              key={index}
+              url={"http://127.0.0.1:5000/" + image.image_url}
+              name={image.img_name}
+              distance={image.distance}
+            />
+          ))
+        ) : (
+          <></>
+        )}
       </div>
     </div>
   );
