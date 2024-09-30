@@ -1,70 +1,111 @@
-# Getting Started with Create React App
+# 😎 Image Comparison Web Application Based On Histogram Values
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This application allows users to upload an image and compare it with other images to find similar ones. The interface includes two main pages: Home and Result.
 
-## Available Scripts
+## 🌟 Features
+- Upload an image for comparison.
+- Use histogram equalization (`equalizeHist`) for better comparison accuracy.
+- Select the top 5 or top 10 similar images based on the uploaded image.
+- Display the results of similar images.
 
-In the project directory, you can run:
+## 🛠️ System Requirements
 
-### `npm start`
+Before running the application, ensure you have the following installed:
+- Node.js 20.17.0 __(Recommend)__
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🚀 Getting Started
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Backend
+1. Clone the repository to your local machine:
+```
+git clone https://github.com/Havold/CS406-Lab02-BE-Raw.git
+cd CS406-Lab02-BE-Raw
+```
+2. Install the dependencies:
+```
+pip install -r requirements.txt
+```
+3. Set up the directory structure:
+  - For details I suggest you check out my BE project: https://github.com/Havold/CS406-Lab02-BE-Raw
+4. Run the backend application:
+```
+python app.py
+```
 
-### `npm test`
+### Frontend
+1. Clone the repository to your local machine:
+    ```
+    git clone [<repository-url>](https://github.com/Havold/CS406-Lab02-FE.git)
+    cd CS406-Lab02-FE
+    ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. Install the dependencies:
+    ```
+    npm install
+    ```
 
-### `npm run build`
+3. Start the application:
+    ```
+    npm start
+    ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4. Open your browser and go to `http://localhost:3000` to view the application.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## ⚠️ Important Notice
+- To be able to run the Backend, I suggest you check out my BE project here: https://github.com/Havold/CS406-Lab02-BE-Raw
+----------------------------------------------------------------------------------------
+# 😎 Ứng dụng web so sánh hình ảnh dựa trên giá trị histogram
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Trang web này cho phép người dùng tải lên một bức ảnh và so sánh nó với các ảnh khác để tìm ra những bức ảnh tương tự. Giao diện bao gồm hai trang chính: Trang chính (`Home`) và Trang kết quả (`Result`).
 
-### `npm run eject`
+## 🌟 Tính năng
+- Tải lên ảnh để so sánh.
+- Sử dụng cân bằng histogram (`equalizeHist`) để tăng độ chính xác trong việc so sánh.
+- Chọn số lượng ảnh tương tự muốn hiển thị (top 5 hoặc top 10).
+- Hiển thị kết quả so sánh các ảnh tương tự.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 🛠️ Requirements
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Trước khi chạy ứng dụng, hãy đảm bảo bạn đã cài đặt:
+- Node.js 20.17.0 __(Recommend)__
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 🚀 Bắt đầu thôi!
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Backend
+1. Clone dự án backend về máy:
+```
+git clone https://github.com/Havold/CS406-Lab02-BE-Raw.git
+cd CS406-Lab02-BE-Raw
+```
+2. Cài đặt các dependencies:
+```
+pip install -r requirements.txt
+```
+3. Cấu trúc thư mục:
+   - Để chi tiết tôi đề xuất bạn nên xem qua dự án BE của tôi: https://github.com/Havold/CS406-Lab02-BE-Raw
+4. Chạy ứng dụng backend:
+```
+python app.py
+```
 
-## Learn More
+### Frontend
+1. Clone dự án về máy:
+    ```
+    git clone [<repository-url>](https://github.com/Havold/CS406-Lab02-FE.git)
+    cd CS406-Lab02-FE
+    ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+2. Cài đặt các dependencies:
+    ```
+    npm install
+    ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+3. Chạy ứng dụng:
+    ```
+    npm start
+    ```
 
-### Code Splitting
+4. Mở trình duyệt và truy cập vào `http://localhost:3000` để xem ứng dụng.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## ⚠️ Lưu ý quan trọng
+- Để có thể chạy được phẩn Backend, tôi đề xuất bạn nên xem qua dự án BE của tôi ở đây: https://github.com/Havold/CS406-Lab02-BE-Raw
