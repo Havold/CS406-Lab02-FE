@@ -5,7 +5,7 @@ import { UploadContext } from "../../context/UploadContext";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 const Home = () => {
-  const { image, setImage } = useContext(UploadContext);
+  const { image, setImage, setIsEqualized } = useContext(UploadContext);
   const navigate = useNavigate();
   const queryClient = useQueryClient();
 
@@ -23,7 +23,6 @@ const Home = () => {
     const file = e.target.files[0];
     if (file) {
       mutation.mutate(file);
-
       navigate("/result");
     }
   };
@@ -36,8 +35,32 @@ const Home = () => {
           <h1>METAN</h1>
           <p>A website for finding similar images based on histogram values.</p>
         </div>
-        <input type="file" id="uploadFile" onChange={handleUpload} />
-        <label htmlFor="uploadFile">Upload</label>
+        <div className="buttons">
+          <div className="item">
+            <input
+              type="file"
+              id="uploadFile"
+              onChange={(e) => {
+                setIsEqualized(false);
+                handleUpload(e);
+              }}
+            />
+            <label htmlFor="uploadFile">Upload</label>
+          </div>
+          <div className="item">
+            <input
+              type="file"
+              id="uploadFileEqualized"
+              onChange={(e) => {
+                setIsEqualized(true);
+                handleUpload(e);
+              }}
+            />
+            <label className="equalized" htmlFor="uploadFileEqualized">
+              Upload And Equalized
+            </label>
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -4,6 +4,7 @@ export const UploadContext = createContext();
 
 export const UploadContextProvider = ({ children }) => {
   const [image, setImage] = useState(null);
+  const [isEqualized, setIsEqualized] = useState(false);
 
   useEffect(() => {
     return () => {
@@ -14,7 +15,9 @@ export const UploadContextProvider = ({ children }) => {
   }, [image]);
 
   return (
-    <UploadContext.Provider value={{ image, setImage }}>
+    <UploadContext.Provider
+      value={{ image, setImage, isEqualized, setIsEqualized }}
+    >
       {children}
     </UploadContext.Provider>
   );

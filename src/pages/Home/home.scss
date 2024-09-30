@@ -43,21 +43,40 @@
             }
         }
 
-        input {
-            display: none;
-        }
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            align-items: center;
 
-        label {
-            color: white;
-            background-color: var(--primary);
-            font-size: 20px;
-            padding: 12px 24px;
-            border-radius: 8px;
-            cursor: pointer;
+            .item {
+                input {
+                    display: none;
+                }
+        
+                label {
+                    color: white;
+                    background-color: var(--primary);
+                    font-size: 20px;
+                    padding: 12px 24px;
+                    border-radius: 8px;
+                    cursor: pointer;
 
-            &:hover {
-                opacity: 0.8;
+                    &.equalized {
+                        background-color: transparent;
+                        border: 1px solid white;
+                        border-radius: 8px;
+                    }
+        
+                    &:hover {
+                        opacity: 0.8;
+                    }
+                }
             }
+
         }
+
+
+
     }
 }
