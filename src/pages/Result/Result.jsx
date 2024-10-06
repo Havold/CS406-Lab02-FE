@@ -109,7 +109,7 @@ function Result() {
           data.map((image, index) => (
             <ResultImage
               key={index}
-              url={"http://127.0.0.1:5000/" + image.image_url}
+              url={"http://localhost:5000/" + image.image_url}
               name={image.img_name}
               distance={image.distance}
             />
