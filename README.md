@@ -35,7 +35,7 @@ python app.py
 ### Frontend
 1. Clone the repository to your local machine:
     ```
-    git clone [<repository-url>](https://github.com/Havold/CS406-Lab02-FE.git)
+    git clone https://github.com/Havold/CS406-Lab02-FE.git
     cd CS406-Lab02-FE
     ```
 
@@ -91,7 +91,7 @@ python app.py
 ### Frontend
 1. Clone dự án về máy:
     ```
-    git clone [<repository-url>](https://github.com/Havold/CS406-Lab02-FE.git)
+    git clone https://github.com/Havold/CS406-Lab02-FE.git
     cd CS406-Lab02-FE
     ```
 
